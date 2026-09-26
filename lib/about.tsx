@@ -10,13 +10,13 @@ export type CmsAbout = {
 }
 
 export const defaultAbout: CmsAbout = {
-  role: 'Frontend Engineer',
-  title: 'Team Lead',
+  role: 'AI Engineer',
+  title: 'Backend dev',
   intro:
-    "For 6+ years, I've built and shipped software across telecom, financial systems, and enterprise operations; solving problems where reliability, scalability, security, and user experience matter.",
+    "I build backend systems and AI-powered applications, with a focus on APIs, intelligent workflows, and the systems that make AI products reliable and useful.",
   body:
-    "I've led and worked hands-on across platforms serving over 1 million users, from system architecture and backend services to APIs and frontend applications. I go beyond marking tickets as done; I think about the bigger picture: how a system is designed, how it scales, how secure and resilient it is, and how easily it can evolve as the business grows.",
-  highlights: ['financial systems', '1 million', 'telecom'],
+    "My work sits at the intersection of backend engineering and AI. I've built APIs, integrated LLMs, worked with retrieval systems and vector databases, and explored how architectural decisions affect the reliability, scalability, and performance of AI applications. I'm especially interested in building practical systems that turn AI capabilities into useful products.",
+  highlights: ['backend systems', 'AI-powered applications', 'LLM systems'],
 }
 
 /** Emphasize highlight terms in plain text (longest match first). */

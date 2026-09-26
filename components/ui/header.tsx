@@ -39,7 +39,7 @@ const Header = ({ navLinks = fallbackNav }: HeaderProps) => {
           isHome ? "text-highlight" : "text-foreground hover:text-highlight"
         }`}
       >
-        Nnamdi!
+        Godsfavour !
       </Link>
 
       <nav className="flex flex-wrap justify-end gap-2">

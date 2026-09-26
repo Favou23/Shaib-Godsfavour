@@ -4,9 +4,9 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "nnamdi azubuike",
-    "short_name": "nnamdi",
-    "description": "Nnamdi Azubuike is a proficient and forward-thinking software engineer, specializing in pioneering innovative products and solutions, particularly within the frontend ecosystem",
+    "name": "Shaib Godsfavour",
+    "short_name": "Godsfavour",
+    "description": "AI engineer and backend developer building intelligent systems, AI-powered applications, and reliable backend infrastructure.",
     "icons": [
         {
             "src": "/icon-192x192.png",

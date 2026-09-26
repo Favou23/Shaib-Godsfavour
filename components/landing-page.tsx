@@ -34,7 +34,7 @@ export default function LandingPage({
       {/* No fade-up on the hero — opacity:0 blocks LCP (PageSpeed NO_LCP). */}
       <section className="max-w-2xl">
         <h1 className="font-display text-4xl font-extrabold tracking-tight text-highlight sm:text-5xl">
-          Nnamdi Azubuike
+          Shaib Godsfavour
         </h1>
         <p className="mt-3 text-base text-foreground/90 sm:text-lg">
           <span className="text-mark">{about.role}</span>

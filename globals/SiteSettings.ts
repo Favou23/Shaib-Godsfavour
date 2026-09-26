@@ -26,12 +26,12 @@ export const SiteSettings: GlobalConfig = {
         {
           name: 'role',
           type: 'text',
-          defaultValue: 'Frontend Engineer',
+          defaultValue: 'Software Engineer',
         },
         {
           name: 'title',
           type: 'text',
-          defaultValue: 'Team Lead',
+          defaultValue: 'AI Engineer',
         },
         {
           name: 'intro',
@@ -228,7 +228,7 @@ export const SiteSettings: GlobalConfig = {
         {
           name: 'copyrightName',
           type: 'text',
-          defaultValue: 'NNAMDI AZUBUIKE',
+          defaultValue: 'Shaib Godsfavour',
           admin: {
             description: 'Shown as © {year} NAME',
           },

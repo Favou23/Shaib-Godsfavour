@@ -6,7 +6,7 @@ import {
   LINKEDIN_URL,
   PROJECT_URL,
   RESUME_URL,
-  TWITTER_URL,
+  // TWITTER_URL,
 } from "@/config/routes";
 import type { Article, NavLinks, PortfolioItem, ProjectDataType } from "@/lib/definitions";
 
@@ -40,11 +40,11 @@ export const PortfolioData: PortfolioItem[] = [
     name: "Github",
     uri: GITHUB_URL,
   },
-  {
-    id: 2,
-    name: "Twitter",
-    uri: TWITTER_URL,
-  },
+  // {
+  //   id: 2,
+  //   name: "Twitter",
+  //   uri: TWITTER_URL,
+  // },
   {
     id: 3,
     name: "LinkedIn",

@@ -1,4 +1,4 @@
-# Nnamdi Azubuike - Portfolio
+# Shaib Godsfavour - Portfolio
 
 Portfolio site powered by **Next.js** and **Payload CMS**. Projects, articles, and site settings are editable in the Payload admin.
 

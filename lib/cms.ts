@@ -76,7 +76,7 @@ export type CmsFooterBrand = {
 }
 
 export const defaultFooterBrand: CmsFooterBrand = {
-  copyrightName: 'NNAMDI AZUBUIKE',
+  copyrightName: 'Shaib Godsfavour',
   location: 'LAGOS, NIGERIA',
   timezone: 'Africa/Lagos',
 }

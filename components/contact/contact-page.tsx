@@ -3,7 +3,7 @@ import {
   EMAIL_URL,
   GITHUB_URL,
   LINKEDIN_URL,
-  TWITTER_URL,
+  // TWITTER_URL,
 } from '@/config/routes'
 import { MessageCircle } from 'lucide-react'
 import Link from 'next/link'
@@ -38,22 +38,22 @@ export default function ContactPage({
       : []),
     {
       label: 'LinkedIn',
-      detail: 'nnamdi-azubuike',
+      detail: 'Shaib Godsfavour',
       href: LINKEDIN_URL,
       external: true,
     },
     {
       label: 'GitHub',
-      detail: 'azubuike-nnamdi',
+      detail: 'Shaib Godsfavour',
       href: GITHUB_URL,
       external: true,
     },
-    {
-      label: 'Twitter',
-      detail: '@_iamclement_',
-      href: TWITTER_URL,
-      external: true,
-    },
+    // {
+    //   label: 'Twitter',
+    //   detail: '@Gods_fhay_vour',
+    //   href: TWITTER_URL,
+    //   external: true,
+    // },
     {
       label: 'Resume',
       detail: 'View CV',

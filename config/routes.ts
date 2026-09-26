@@ -5,17 +5,18 @@ const TALK_URL: string = '/talks'
 const ABOUT_URL: string = '/about'
 const CONTACT_URL: string = '/contact'
 
-const EMAIL: string = 'acu.nnamdi@gmail.com'
+const EMAIL: string = 'shaibfavour26@gmail.com'
 const EMAIL_URL: string = `mailto:${EMAIL}`
-const RESUME_URL: string = 'https://drive.google.com/file/d/1pn8JNNXnaE1dmfcGEhw3qvMtcjCfA4YN/view?usp=sharing'
-const LINKEDIN_URL: string = 'https://www.linkedin.com/in/nnamdi-azubuike/'
-const GITHUB_URL: string = 'https://github.com/azubuike-nnamdi'
-const TWITTER_URL: string = 'https://twitter.com/_iamclement_'
-const MEDIUM_URL: string = 'https://medium.com/@nnamdi_azubuike'
-const HASHNODE_URL: string = 'https://iamclement.hashnode.dev/'
+const RESUME_URL: string = 'https://drive.google.com/file/d/1WWHiiylPHo9gaElH8ttyrgr4N1VS_1ys/view?usp=drive_link'
+
+const LINKEDIN_URL: string = 'https://www.linkedin.com/in/shaibgodsfavour/'
+const GITHUB_URL: string = 'https://github.com/Favou23'
+// const TWITTER_URL: string = 'https://twitter.com/_iamclement_'
+const MEDIUM_URL: string = "https://medium.com/@shaibfavour26"
+// const HASHNODE_URL: string = 'https://iamclement.hashnode.dev/'
 
 const DEFAULT_WHATSAPP_MESSAGE =
-  'Hello Nnamdi, I came from your website and would like to talk.'
+  'Hello Godsfavour, I came from your website and would like to talk.'
 
 function normalizeWhatsAppPhone(phone: string): string {
   return phone.replace(/\D/g, '')
@@ -44,13 +45,13 @@ export {
   EMAIL_URL,
   EXPERIENCE_URL,
   GITHUB_URL,
-  HASHNODE_URL,
+  // HASHNODE_URL,
   LINKEDIN_URL,
   MEDIUM_URL,
   PROJECT_URL,
   RESUME_URL,
   TALK_URL,
-  TWITTER_URL,
+  // TWITTER_URL,
   buildWhatsAppUrl,
   normalizeWhatsAppPhone,
 }

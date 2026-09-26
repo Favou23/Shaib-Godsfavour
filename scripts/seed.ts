@@ -1,4 +1,13 @@
 import { getPayload } from 'payload'
+import {
+  ARTICLE_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  PROJECT_URL,
+  RESUME_URL,
+  // TWITTER_URL,
+} from '../config/routes'
+import { defaultExperience } from '../lib/experience'
 import config from '../payload.config'
 import {
   ArticlesData,
@@ -7,15 +16,6 @@ import {
   PortfolioData,
   ProjectData,
 } from './seed-data'
-import {
-  ARTICLE_URL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-  PROJECT_URL,
-  RESUME_URL,
-  TWITTER_URL,
-} from '../config/routes'
-import { defaultExperience } from '../lib/experience'
 
 function parseLooseDate(value: string): string {
   const normalized = value
@@ -48,22 +48,22 @@ async function seed() {
     slug: 'site-settings',
     data: {
       about: {
-        role: 'Frontend Engineer',
-        title: 'Team Lead',
+        role: 'AI Engineer',
+        title: 'Backend dev',
         intro:
-          "For 6+ years, I've built and shipped software across telecom, financial systems, and enterprise operations — solving problems where reliability, scalability, security, and user experience matter.",
+          "'I build backend systems and AI-powered applications that turn complex problems into reliable, practical software.",
         body:
-          "I've led and worked hands-on across platforms serving over 1 million users, from system architecture and backend services to APIs and frontend applications. I go beyond marking tickets as done — I think about the bigger picture: how a system is designed, how it scales, how secure and resilient it is, and how easily it can evolve as the business grows.",
+          "I enjoy working at the intersection of backend engineering and AI, from designing APIs and system architecture to integrating LLMs, retrieval systems, and intelligent workflows. I focus on building software that is practical, maintainable, and useful.",
         highlights: [
-          { term: 'financial systems' },
-          { term: '1 million' },
-          { term: 'telecom' },
+          { term: 'backend systems' },
+          { term: 'AI- powered applications' },
+          { term: 'reliabe - software' },
         ],
       },
       contact: {
-        whatsappPhone: '2347034947199',
+        whatsappPhone: '2349039781651',
         whatsappMessage:
-          'Hello Nnamdi, I came from your website and would like to talk.',
+          'Hello Godsfavour, I came from your website and would like to talk.',
       },
       resume: {
         url: RESUME_URL,
@@ -77,7 +77,7 @@ async function seed() {
         highlights: item.highlights.map((text) => ({ text })),
       })),
       footer: {
-        copyrightName: 'NNAMDI AZUBUIKE',
+        copyrightName: 'SHAIB GODSFAVOUR',
         location: 'LAGOS, NIGERIA',
         timezone: 'Africa/Lagos',
       },
@@ -185,9 +185,17 @@ async function seed() {
     limit: 1,
   })
 
+  // revisit this code block, and reconfigure the necessary things 
+
   if (existingUsers.totalDocs === 0) {
-    const email = process.env.PAYLOAD_ADMIN_EMAIL || 'admin@nnamdiazubuike.dev'
-    const password = process.env.PAYLOAD_ADMIN_PASSWORD || 'changeme123'
+    const email = process.env.PAYLOAD_ADMIN_EMAIL?.trim()
+    const password = process.env.PAYLOAD_ADMIN_PASSWORD
+
+    if (!email || !password) {
+      throw new Error(
+        'Set PAYLOAD_ADMIN_EMAIL and PAYLOAD_ADMIN_PASSWORD in .env before creating the initial Payload admin user.',
+      )
+    }
 
     console.log(`Creating admin user ${email}...`)
     await payload.create({
@@ -201,7 +209,7 @@ async function seed() {
 
   console.log('Seed complete.')
   console.log(`Nav defaults: ${PROJECT_URL}, ${ARTICLE_URL}`)
-  console.log(`Social defaults: ${GITHUB_URL}, ${TWITTER_URL}, ${LINKEDIN_URL}, ${RESUME_URL}`)
+  console.log(`Social defaults: ${GITHUB_URL}, ${LINKEDIN_URL}, ${RESUME_URL}`)
   process.exit(0)
 }
 

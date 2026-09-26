@@ -20,42 +20,47 @@ const syne = Syne({
 });
 
 const siteDescription =
-  "Software Engineer who builds and scales systems with React, Next.js, Node.js, and NestJS — focused on performance, reliability, and maintainable architecture.";
+  "AI engineer and backend developer building intelligent systems with modern backend and AI technologies.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nnamdiazubuike.dev"),
   title: {
-    default: "Nnamdi Azubuike",
-    template: "%s | Nnamdi Azubuike",
+    default: "Shaib Godsfavour - AI Engineer & Backend Developer",
+    template: "%s | Shaib Godsfavour",
   },
   description: siteDescription,
   keywords: [
-    "Nnamdi Azubuike",
-    "Software Engineer",
-    "Frontend Lead",
-    "Product Builder",
+    "Shaib Godsfavour",
+    "AI Engineer",
+    "Backend Engineer",
+    "AI systems",
+    "LLM applications",
+    "Agentic AI",
+    "python",
+    "RAG",
+    "Typescript",
     "Next.js",
     "React",
     "Portfolio",
   ],
-  authors: [{ name: "Nnamdi Azubuike", url: "https://www.nnamdiazubuike.dev" }],
-  creator: "Nnamdi Azubuike",
-  publisher: "Nnamdi Azubuike",
+  authors: [{ name: "Shaib Godsfavour", url: "https://www.nnamdiazubuike.dev" }],
+  creator: "Shaib Godsfavour",
+  publisher: "Shaib Godsfavour",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Nnamdi Azubuike",
+    title: "Shaib Godsfavour",
     description: siteDescription,
     url: "https://www.nnamdiazubuike.dev/",
-    siteName: "Nnamdi Azubuike",
+    siteName: "Shaib Godsfavour",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Nnamdi Azubuike — Software Engineer, Frontend Lead, and Product Builder",
+        alt: "AI engineer and backend developer building intelligent systems with modern backend and AI technologies",
       },
     ],
     locale: "en_US",
@@ -63,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nnamdi Azubuike",
+    title: "Shaib Godsfavour",
     description: siteDescription,
     images: ["/og.png"],
   },
@@ -79,9 +84,9 @@ export const metadata: Metadata = {
     },
   ],
   manifest: "/manifest.json",
-  verification: {
-    google: "ZnbKzL4y7SZDMOuyp5S-FGRdAlkQ_xE6rzyx8jWpXgA",
-  },
+  // verification: {
+  //   google: "ZnbKzL4y7SZDMOuyp5S-FGRdAlkQ_xE6rzyx8jWpXgA",
+  // },
 };
 
 export default async function RootLayout({
