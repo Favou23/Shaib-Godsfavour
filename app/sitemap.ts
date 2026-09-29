@@ -3,12 +3,13 @@ import type { MetadataRoute } from 'next'
 import process from 'node:process'
 import { URL } from 'node:url'
 
-export const dynamic = 'force-dynamic'
 
+// const siteUrl =
+//   process.env.NEXT_PUBLIC_SITE_URL ||
+//   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
-
+  process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [projects, articles] = await Promise.all([getProjects(), getArticles()])
   const staticRoutes = ['', '/projects', '/experience', '/articles', '/contact']
