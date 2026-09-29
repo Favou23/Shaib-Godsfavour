@@ -1,4 +1,4 @@
-import { encode } from 'qss'
+import { encode } from 'qss';
 
 export function slugify(value: string): string {
   return value
@@ -48,6 +48,6 @@ export function projectMetaDescription(project: {
     project.proof?.trim() ||
     project.outcome?.trim() ||
     project.desc?.trim() ||
-    `${project.name} — project by Nnamdi Azubuike`
+    `${project.name} — project by Shaib Godsfavour`
   )
 }

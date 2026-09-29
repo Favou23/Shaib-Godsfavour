@@ -4,20 +4,17 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Experience',
-  description:
-    'Nnamdi Azubuike — Senior Frontend Engineer and Team Lead at MTN Nigeria, with prior roles at Weavii, Cellcore, and KudiGo.',
+  description: 'Professional experience of Shaib Godsfavour.',
   openGraph: {
-    title: 'Experience | Nnamdi Azubuike',
-    description:
-      'Team lead and senior frontend experience across MTN, Weavii, Cellcore, and KudiGo.',
-    url: 'https://www.nnamdiazubuike.dev/experience',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Nnamdi Azubuike' }],
+    title: 'Experience | Shaib Godsfavour',
+    description: 'Professional experience of Shaib Godsfavour.',
+    url: '/experience',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Shaib Godsfavour' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Experience | Nnamdi Azubuike',
-    description:
-      'Team lead and senior frontend experience across MTN, Weavii, Cellcore, and KudiGo.',
+    title: 'Experience | Shaib Godsfavour',
+    description: 'Professional experience of Shaib Godsfavour.',
     images: ['/og.png'],
   },
   robots: {

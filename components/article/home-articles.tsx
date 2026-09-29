@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
 import type { Article } from '@/lib/definitions'
+import Link from 'next/link'
+import { useState } from 'react'
 
 type HomeArticlesProps = {
   articles: Article[]
@@ -23,7 +23,11 @@ export const HomeArticles = ({ articles }: HomeArticlesProps) => {
   const visibleArticles = articles.slice(0, visibleCount)
 
   if (articles.length === 0) {
-    return <div className="fade-up py-12 text-muted-foreground">No articles published yet.</div>
+    return (
+      <div className="fade-up space-y-3 py-8 text-muted-foreground">
+        <p>Articles coming soon.</p>
+      </div>
+    )
   }
 
   return (

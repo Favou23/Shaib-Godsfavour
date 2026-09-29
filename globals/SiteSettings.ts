@@ -8,7 +8,9 @@ export const SiteSettings: GlobalConfig = {
   },
   hooks: {
     afterChange: [
-      async () => {
+      async ({ context }) => {
+        if (context.skipSiteRevalidation) return
+
         const { revalidatePath } = await import('next/cache')
         revalidatePath('/', 'layout')
       },
@@ -88,7 +90,7 @@ export const SiteSettings: GlobalConfig = {
           name: 'whatsappMessage',
           type: 'textarea',
           defaultValue:
-            'Hello Nnamdi, I came from your website and would like to talk.',
+            'Hello Shaib, I came from your website and would like to talk.',
           admin: {
             description: 'Prefill message when someone opens WhatsApp.',
           },

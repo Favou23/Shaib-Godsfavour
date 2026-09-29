@@ -18,6 +18,21 @@ function listBlurb(project: ProjectDataType) {
 }
 
 export default function ProjectLanding({ projects }: ProjectLandingProps) {
+  if (projects.length === 0) {
+    return (
+      <div className="fade-up space-y-4">
+        <header className="space-y-2">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-highlight sm:text-4xl">
+            Projects
+          </h1>
+          <p className="max-w-xl text-base leading-7 text-muted-foreground">
+            Project details coming soon.
+          </p>
+        </header>
+      </div>
+    )
+  }
+
   return (
     <div className="fade-up space-y-8">
       <header className="space-y-2">

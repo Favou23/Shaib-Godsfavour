@@ -1,6 +1,6 @@
 "use client";
 
-import { CONTACT_URL } from "@/config/routes";
+import { ARTICLE_URL, CONTACT_URL, EXPERIENCE_URL, PROJECT_URL } from "@/config/routes";
 import type { NavLinks } from "@/lib/definitions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,9 +10,10 @@ type HeaderProps = {
 };
 
 const fallbackNav: NavLinks[] = [
-  { id: 1, name: "Projects", href: "/projects" },
-  { id: 2, name: "Articles", href: "/articles" },
-  { id: 3, name: "Contact", href: CONTACT_URL },
+  { id: 1, name: "Projects", href: PROJECT_URL },
+  { id: 2, name: "Experience", href: EXPERIENCE_URL },
+  { id: 3, name: "Articles", href: ARTICLE_URL },
+  { id: 4, name: "Contact", href: CONTACT_URL },
 ];
 
 function withContactLink(links: NavLinks[]): NavLinks[] {
@@ -29,7 +30,7 @@ function withContactLink(links: NavLinks[]): NavLinks[] {
 const Header = ({ navLinks = fallbackNav }: HeaderProps) => {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const links = withContactLink(navLinks);
+  const links = withContactLink(navLinks.length > 0 ? navLinks : fallbackNav);
 
   return (
     <header className="flex items-center justify-between gap-4">
@@ -45,7 +46,6 @@ const Header = ({ navLinks = fallbackNav }: HeaderProps) => {
       <nav className="flex flex-wrap justify-end gap-2">
         {links.map((nav) => {
           const href = nav.href.startsWith("/") ? nav.href : `/${nav.href}`;
-          const label = href === "/" ? "/home" : href;
           const isActive = pathname === href;
 
           return (
@@ -54,7 +54,7 @@ const Header = ({ navLinks = fallbackNav }: HeaderProps) => {
               href={href}
               className={`nav-chip ${isActive ? "border-highlight bg-highlight/10 text-highlight" : ""}`}
             >
-              {label}
+              {nav.name}
             </Link>
           );
         })}

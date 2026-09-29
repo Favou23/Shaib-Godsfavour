@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description =
     article.summary?.trim() ||
     article.desc?.trim() ||
-    `${article.title} — article by Nnamdi Azubuike`
+    `${article.title} — article by Shaib Godsfavour`
   const images = article.image
     ? [{ url: article.image, width: 1200, height: 630, alt: article.title }]
     : [{ url: '/og.png', width: 1200, height: 630, alt: article.title }]
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: article.title,
       description,
-      url: `https://www.nnamdiazubuike.dev/articles/${article.slug}`,
+      url: `/articles/${article.slug}`,
       type: 'article',
       images,
     },

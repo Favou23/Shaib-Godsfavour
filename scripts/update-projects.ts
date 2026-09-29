@@ -1,41 +1,10 @@
 import { getPayload } from 'payload'
+import { slugify } from '../lib/project'
 import config from '../payload.config'
 import { ProjectData } from './seed-data'
-import { slugify } from '../lib/project'
-import { defaultExperience } from '../lib/experience'
-import { defaultFooterBrand } from '../lib/cms'
 
 async function main() {
   const payload = await getPayload({ config })
-
-  console.log('Upserting experience in site settings...')
-  await payload.updateGlobal({
-    slug: 'site-settings',
-    data: {
-      about: {
-        role: 'Frontend Engineer',
-        title: 'Team Lead',
-        intro:
-          "For 6+ years, I've built and shipped software across telecom, financial systems, and enterprise operations — solving problems where reliability, scalability, security, and user experience matter.",
-        body:
-          "I've led and worked hands-on across platforms serving over 1 million users, from system architecture and backend services to APIs and frontend applications. I go beyond marking tickets as done — I think about the bigger picture: how a system is designed, how it scales, how secure and resilient it is, and how easily it can evolve as the business grows.",
-        highlights: [
-          { term: 'financial systems' },
-          { term: '1 million' },
-          { term: 'telecom' },
-        ],
-      },
-      experience: defaultExperience.map((item) => ({
-        company: item.company,
-        role: item.role,
-        badge: item.badge,
-        period: item.period,
-        summary: item.summary,
-        highlights: item.highlights.map((text) => ({ text })),
-      })),
-      footer: defaultFooterBrand,
-    },
-  })
 
   console.log('Upserting project case-study fields...')
 

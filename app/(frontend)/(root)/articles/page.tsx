@@ -4,20 +4,17 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Articles',
-  description:
-    'Technical writing by Nnamdi Azubuike on frontend engineering, tooling, APIs, and production systems.',
+  description: 'Articles and technical writing by Shaib Godsfavour.',
   openGraph: {
-    title: 'Articles | Nnamdi Azubuike',
-    description:
-      'Notes and guides on React, Next.js, tooling, and shipping software in production.',
-    url: 'https://www.nnamdiazubuike.dev/articles',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Nnamdi Azubuike' }],
+    title: 'Articles | Shaib Godsfavour',
+    description: 'Articles and technical writing by Shaib Godsfavour.',
+    url: '/articles',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Shaib Godsfavour' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Articles | Nnamdi Azubuike',
-    description:
-      'Notes and guides on React, Next.js, tooling, and shipping software in production.',
+    title: 'Articles | Shaib Godsfavour',
+    description: 'Articles and technical writing by Shaib Godsfavour.',
     images: ['/og.png'],
   },
 }

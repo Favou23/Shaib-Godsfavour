@@ -4,20 +4,17 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description:
-    'Products and platforms Nnamdi Azubuike has helped design and ship — including MTN self-service, FibreX, Numoni, and more.',
+  description: 'Selected software projects by Shaib Godsfavour.',
   openGraph: {
-    title: 'Projects | Nnamdi Azubuike',
-    description:
-      'Products and platforms shipped in production — self-service, payments, and product frontends.',
-    url: 'https://www.nnamdiazubuike.dev/projects',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Nnamdi Azubuike' }],
+    title: 'Projects | Shaib Godsfavour',
+    description: 'Selected software projects by Shaib Godsfavour.',
+    url: '/projects',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Shaib Godsfavour' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Projects | Nnamdi Azubuike',
-    description:
-      'Products and platforms shipped in production — self-service, payments, and product frontends.',
+    title: 'Projects | Shaib Godsfavour',
+    description: 'Selected software projects by Shaib Godsfavour.',
     images: ['/og.png'],
   },
 }

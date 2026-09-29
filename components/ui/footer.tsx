@@ -1,7 +1,15 @@
-import { CONTACT_URL } from "@/config/routes";
-import { formatUtcOffset, getCurrentYear } from "@/lib/helper";
+import {
+  ARTICLE_URL,
+  CONTACT_URL,
+  EXPERIENCE_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  MEDIUM_URL,
+  PROJECT_URL,
+} from "@/config/routes";
 import type { CmsFooterBrand } from "@/lib/cms";
 import type { FooterColumn, FooterLink, PortfolioItem } from "@/lib/definitions";
+import { formatUtcOffset, getCurrentYear } from "@/lib/helper";
 import Link from "next/link";
 
 type FooterProps = {
@@ -9,6 +17,19 @@ type FooterProps = {
   socialLinks?: PortfolioItem[];
   brand?: CmsFooterBrand;
 };
+
+const fallbackSocialLinks: PortfolioItem[] = [
+  { id: "github", name: "GitHub", uri: GITHUB_URL },
+  { id: "linkedin", name: "LinkedIn", uri: LINKEDIN_URL },
+  { id: "medium", name: "Medium", uri: MEDIUM_URL },
+];
+
+const fallbackRoutes: FooterLink[] = [
+  { id: "projects", label: "Projects", url: PROJECT_URL },
+  { id: "experience", label: "Experience", url: EXPERIENCE_URL },
+  { id: "articles", label: "Articles", url: ARTICLE_URL },
+  { id: "contact", label: "Contact", url: CONTACT_URL },
+];
 
 function withContactRoute(links: FooterLink[]): FooterLink[] {
   const hasContact = links.some((link) => link.url === CONTACT_URL);
@@ -18,27 +39,23 @@ function withContactRoute(links: FooterLink[]): FooterLink[] {
 }
 
 const Footer = ({ columns, socialLinks = [], brand }: FooterProps) => {
-  const elsewhere =
-    socialLinks.length > 0
-      ? socialLinks
-      : columns
-          .flatMap((column) => column.links)
-          .filter((link) => !link.isEmail)
-          .slice(0, 4)
-          .map((link) => ({
-            id: Number(link.id) || 0,
-            name: link.label,
-            uri: link.url,
-          }));
+  const configuredSocialLinks = socialLinks.filter(
+    (link) => !/resume|cv|email/i.test(link.name),
+  );
+  const elsewhere = configuredSocialLinks.length > 0
+    ? configuredSocialLinks
+    : fallbackSocialLinks;
 
-  const routes = withContactRoute(
+  const configuredRoutes =
     columns.find((column) => column.title.toLowerCase().includes("quick"))?.links ??
-      columns[columns.length - 1]?.links ??
-      [],
+    columns[columns.length - 1]?.links ??
+    [];
+  const routes = withContactRoute(
+    configuredRoutes.length > 0 ? configuredRoutes : fallbackRoutes,
   );
 
   const year = getCurrentYear();
-  const copyrightName = brand?.copyrightName || "NNAMDI AZUBUIKE";
+  const copyrightName = brand?.copyrightName || "SHAIB GODSFAVOUR";
   const location = brand?.location || "LAGOS, NIGERIA";
   const utcOffset = formatUtcOffset(brand?.timezone || "Africa/Lagos");
 

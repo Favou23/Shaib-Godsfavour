@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: project.name,
       description,
-      url: `https://www.nnamdiazubuike.dev/projects/${project.slug}`,
+      url: `/projects/${project.slug}`,
       type: 'article',
       images,
     },

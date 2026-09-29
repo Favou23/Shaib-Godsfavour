@@ -5,8 +5,8 @@ import {
   LINKEDIN_URL,
   PROJECT_URL,
   RESUME_URL,
-  // TWITTER_URL,
 } from '../config/routes'
+import { defaultAbout } from '../lib/about'
 import { defaultExperience } from '../lib/experience'
 import config from '../payload.config'
 import {
@@ -46,24 +46,21 @@ async function seed() {
   console.log('Seeding site settings...')
   await payload.updateGlobal({
     slug: 'site-settings',
+    context: {
+      skipSiteRevalidation: true,
+    },
     data: {
       about: {
-        role: 'AI Engineer',
-        title: 'Backend dev',
-        intro:
-          "'I build backend systems and AI-powered applications that turn complex problems into reliable, practical software.",
-        body:
-          "I enjoy working at the intersection of backend engineering and AI, from designing APIs and system architecture to integrating LLMs, retrieval systems, and intelligent workflows. I focus on building software that is practical, maintainable, and useful.",
-        highlights: [
-          { term: 'backend systems' },
-          { term: 'AI- powered applications' },
-          { term: 'reliabe - software' },
-        ],
+        role: defaultAbout.role,
+        title: defaultAbout.title,
+        intro: defaultAbout.intro,
+        body: defaultAbout.body,
+        highlights: defaultAbout.highlights.map((term) => ({ term })),
       },
       contact: {
-        whatsappPhone: '2349039781651',
+        whatsappPhone: '',
         whatsappMessage:
-          'Hello Godsfavour, I came from your website and would like to talk.',
+          'Hello Shaib, I came from your website and would like to talk.',
       },
       resume: {
         url: RESUME_URL,

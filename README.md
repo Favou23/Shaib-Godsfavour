@@ -19,33 +19,38 @@ Portfolio site powered by **Next.js** and **Payload CMS**. Projects, articles, a
 
 ### 2. Environment
 
-```bash
-cp .env.example .env
+```powershell
+Copy-Item .env.example .env
 ```
 
 Set:
 
 - `DATABASE_URL` — Neon pooled Postgres URL
 - `PAYLOAD_SECRET` — long random string
-- Optional: `PAYLOAD_ADMIN_EMAIL` / `PAYLOAD_ADMIN_PASSWORD` for the first admin user (seed defaults)
+- `PAYLOAD_ADMIN_EMAIL` / `PAYLOAD_ADMIN_PASSWORD` — credentials for the first admin user
+- `NEXT_PUBLIC_SITE_URL` — local URL for development; set the deployed public URL in production
 
 ### 3. Install and run
 
 ```bash
-pnpm install
-pnpm dev
+corepack pnpm install
+corepack pnpm dev
 ```
 
-### 4. Seed content (one-time)
+### 4. Initialize the CMS and admin user
 
 ```bash
-pnpm seed
+corepack pnpm seed
 ```
+
+The seed initializes Site Settings and creates the first admin user. It also replaces all Projects and Articles with the seed arrays; those arrays are intentionally empty until you add your own content. Do not run it against a database whose project/article content you want to keep.
 
 ### 5. Open
 
 - Site: [http://localhost:3000](http://localhost:3000)
 - Admin: [http://localhost:3000/admin](http://localhost:3000/admin)
+
+After signing in, manage **Projects**, **Articles**, and **Site Settings** from the Payload dashboard. Add experience, navigation, social profiles, resume URL, and footer settings under **Site Settings**. Project detail links use each project's slug; leave the slug empty to generate it from the project name. Set `featured` on projects to show them on the homepage.
 
 ### Deploy on Vercel
 
@@ -59,10 +64,10 @@ pnpm seed
 
 | Script | Purpose |
 | --- | --- |
-| `pnpm dev` | Next.js + Payload admin |
-| `pnpm seed` | Upsert projects, articles, site settings |
-| `pnpm generate:types` | Regenerate `payload-types.ts` |
-| `pnpm generate:importmap` | Regenerate admin import map |
+| `corepack pnpm dev` | Next.js + Payload admin |
+| `corepack pnpm seed` | Initialize site settings/admin; replace projects and articles from seed data |
+| `corepack pnpm generate:types` | Regenerate `payload-types.ts` |
+| `corepack pnpm generate:importmap` | Regenerate admin import map |
 
 ## Content model
 
@@ -73,6 +78,7 @@ pnpm seed
 
 ## Connect
 
-- LinkedIn: [linkedin.com/in/nnamdiazubuike](https://linkedin.com/in/nnamdiazubuike)
-- GitHub: [github.com/nnamdiazubuike](https://github.com/nnamdiazubuike)
-- Email: [acu.nnamdi@gmail.com](mailto:acu.nnamdi@gmail.com)
+- LinkedIn: [linkedin.com/in/shaibgodsfavour](https://www.linkedin.com/in/shaibgodsfavour/)
+- GitHub: [github.com/Favou23](https://github.com/Favou23)
+- Medium: [medium.com/@shaibfavour26](https://medium.com/@shaibfavour26)
+- Email: [shaibfavour26@gmail.com](mailto:shaibfavour26@gmail.com)

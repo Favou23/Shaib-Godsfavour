@@ -1,5 +1,5 @@
-import type { CmsExperienceItem } from '@/lib/experience'
 import { EXPERIENCE_URL } from '@/config/routes'
+import type { CmsExperienceItem } from '@/lib/experience'
 import Link from 'next/link'
 
 type ExperienceProps = {
@@ -83,7 +83,14 @@ export default function Experience({
   showViewMore = false,
   showHeading = true,
 }: ExperienceProps) {
-  if (experience.length === 0) return null
+  if (experience.length === 0) {
+    return (
+      <section className="fade-up space-y-3">
+        {showHeading ? <h2 className="section-label">experience</h2> : null}
+        <p className="text-sm text-muted-foreground">Experience details coming soon.</p>
+      </section>
+    )
+  }
 
   const items =
     typeof limit === 'number' && limit > 0 ? experience.slice(0, limit) : experience

@@ -37,23 +37,27 @@ const FeatureProject = ({ projects }: FeatureProjectProps) => {
         Platforms shipped and maintained in production — not demos.
       </p>
 
-      <ul className="space-y-4">
-        {projects.map((project) => (
-          <li key={project.id}>
-            <Link
-              href={projectHref(project)}
-              className="group grid w-full grid-cols-1 gap-1 text-left sm:grid-cols-[minmax(7rem,11rem)_1fr] sm:items-baseline sm:gap-4"
-            >
-              <span className="font-display text-base font-semibold text-highlight transition-colors group-hover:text-glow sm:text-lg">
-                {project.name.trim()}
-              </span>
-              <span className="text-[0.95rem] leading-7 text-muted-foreground transition-colors group-hover:text-foreground/85">
-                {shortDesc(project)}
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {projects.length > 0 ? (
+        <ul className="space-y-4">
+          {projects.map((project) => (
+            <li key={project.id}>
+              <Link
+                href={projectHref(project)}
+                className="group grid w-full grid-cols-1 gap-1 text-left sm:grid-cols-[minmax(7rem,11rem)_1fr] sm:items-baseline sm:gap-4"
+              >
+                <span className="font-display text-base font-semibold text-highlight transition-colors group-hover:text-glow sm:text-lg">
+                  {project.name.trim()}
+                </span>
+                <span className="text-[0.95rem] leading-7 text-muted-foreground transition-colors group-hover:text-foreground/85">
+                  {shortDesc(project)}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-sm text-muted-foreground">Featured projects coming soon.</p>
+      )}
     </section>
   )
 }

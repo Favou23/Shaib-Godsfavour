@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { getSiteSettings } from "@/lib/cms";
 import type { Metadata } from "next";
 import { Instrument_Sans, Syne } from "next/font/google";
+import process from "node:process";
 import { URL } from "node:url";
 import "./globals.css";
 
@@ -21,9 +22,10 @@ const syne = Syne({
 
 const siteDescription =
   "AI engineer and backend developer building intelligent systems with modern backend and AI technologies.";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.nnamdiazubuike.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Shaib Godsfavour - AI Engineer & Backend Developer",
     template: "%s | Shaib Godsfavour",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     "React",
     "Portfolio",
   ],
-  authors: [{ name: "Shaib Godsfavour", url: "https://www.nnamdiazubuike.dev" }],
+  authors: [{ name: "Shaib Godsfavour", url: siteUrl }],
   creator: "Shaib Godsfavour",
   publisher: "Shaib Godsfavour",
   robots: {
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shaib Godsfavour",
     description: siteDescription,
-    url: "https://www.nnamdiazubuike.dev/",
+    url: "/",
     siteName: "Shaib Godsfavour",
     images: [
       {

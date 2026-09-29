@@ -1,13 +1,13 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import { defaultAbout, type CmsAbout } from '@/lib/about'
 import {
-  DEFAULT_WHATSAPP_MESSAGE,
-  RESUME_URL,
-  buildWhatsAppUrl,
+    DEFAULT_WHATSAPP_MESSAGE,
+    RESUME_URL,
+    buildWhatsAppUrl,
 } from '@/config/routes'
-import { projectScreenshotFromUrl } from '@/lib/project'
+import { defaultAbout, type CmsAbout } from '@/lib/about'
 import { defaultExperience, type CmsExperienceItem } from '@/lib/experience'
+import { projectScreenshotFromUrl } from '@/lib/project'
+import config from '@payload-config'
+import { getPayload } from 'payload'
 
 export type CmsProject = {
   id: string
@@ -60,8 +60,7 @@ export type CmsFooterColumn = {
   }>
 }
 
-export type { CmsAbout }
-export type { CmsExperienceItem }
+export type { CmsAbout, CmsExperienceItem }
 
 export type CmsContact = {
   whatsappPhone: string
@@ -367,9 +366,17 @@ export async function getProjectBySlug(slug: string) {
   })
 
   const doc = result.docs[0] as ProjectDoc | undefined
-  if (!doc) return null
+  if (doc) return mapProject(doc)
 
-  return mapProject(doc)
+  if (!/^\d+$/.test(slug)) return null
+
+  const legacyDoc = await payload.findByID({
+    collection: 'projects',
+    id: Number(slug),
+    depth: 1,
+  })
+
+  return mapProject(legacyDoc as ProjectDoc)
 }
 
 export async function getArticles(options?: { limit?: number }) {
