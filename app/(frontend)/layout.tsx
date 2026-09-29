@@ -22,7 +22,9 @@ const syne = Syne({
 
 const siteDescription =
   "AI engineer and backend developer building intelligent systems with modern backend and AI technologies.";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,6 +54,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
   openGraph: {
     title: "Shaib Godsfavour",
     description: siteDescription,
@@ -86,9 +91,6 @@ export const metadata: Metadata = {
     },
   ],
   manifest: "/manifest.json",
-  // verification: {
-  //   google: "ZnbKzL4y7SZDMOuyp5S-FGRdAlkQ_xE6rzyx8jWpXgA",
-  // },
 };
 
 export default async function RootLayout({

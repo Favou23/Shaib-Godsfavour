@@ -29,6 +29,7 @@ Set:
 - `PAYLOAD_SECRET` — long random string
 - `PAYLOAD_ADMIN_EMAIL` / `PAYLOAD_ADMIN_PASSWORD` — credentials for the first admin user
 - `NEXT_PUBLIC_SITE_URL` — local URL for development; set the deployed public URL in production
+- `GOOGLE_SITE_VERIFICATION` — optional Search Console HTML verification token
 
 ### 3. Install and run
 
@@ -55,11 +56,20 @@ After signing in, manage **Projects**, **Articles**, and **Site Settings** from 
 ### Deploy on Vercel
 
 1. Import the GitHub repo in Vercel
-2. Add the same env vars (`DATABASE_URL`, `PAYLOAD_SECRET`)
+2. Add the same env vars (`DATABASE_URL`, `PAYLOAD_SECRET`) and set `NEXT_PUBLIC_SITE_URL` to `https://shaib-godsfavour-five.vercel.app`
 3. Deploy
 4. Visit `/admin` on the production URL
 
 > Media uploads to disk will not persist on Vercel. Use external image URLs for now, or add blob storage later.
+
+### Google Search Console
+
+1. Set `NEXT_PUBLIC_SITE_URL` in Vercel to the canonical public site URL and redeploy.
+2. In Search Console, add a URL-prefix property for that exact URL and choose HTML tag verification.
+3. Copy only the verification token from the tag's `content` value into `GOOGLE_SITE_VERIFICATION` in Vercel, then redeploy.
+4. Verify the property and submit `https://your-domain/sitemap.xml` in Search Console.
+
+The site exposes `/robots.txt` and a sitemap containing its public pages and CMS project/full-article pages. Admin and API routes are disallowed for crawlers. Search Console submission requests indexing; Google decides when and whether to index pages.
 ## Useful scripts
 
 | Script | Purpose |
