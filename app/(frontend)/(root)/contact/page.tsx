@@ -14,7 +14,6 @@ export default async function Page() {
   return (
     <ContactPage
       whatsappUrl={contact.whatsappUrl}
-      whatsappPhone={contact.whatsappPhone}
       resumeUrl={resumeUrl}
     />
   )

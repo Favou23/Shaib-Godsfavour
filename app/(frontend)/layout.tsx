@@ -114,7 +114,6 @@ export default async function RootLayout({
             <Header navLinks={siteSettings.navLinks} />
             <main className="pt-10 sm:pt-14">{children}</main>
             <Footer
-              columns={siteSettings.footerColumns}
               socialLinks={siteSettings.socialLinks}
               brand={siteSettings.footer}
             />
